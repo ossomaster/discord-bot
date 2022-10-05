@@ -16,7 +16,7 @@ const getUserVoiceConnection = (interaction) => {
 const playSong = (voiceConnection) => {
   const player = createAudioPlayer();
 
-  const resource = createAudioResource(path.join(__dirname, "../assets/songs/normal.ogg"), {
+  const resource = createAudioResource(path.join(__dirname, "../assets/sounds/normal.ogg"), {
     inputType: StreamType.OggOpus,
   });
 
