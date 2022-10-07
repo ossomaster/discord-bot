@@ -1,6 +1,0 @@
-{
-  "token": "DISCORD_BOT_TOKEN",
-  "clientId": "DISCORP_APP_ID",
-  "guildId": "SERVER_ID",
-  "voiceChannelId": "VOICE_CHANNEL_ID"
-}
