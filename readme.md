@@ -12,7 +12,7 @@
 Para crear un nuevo comando cree el archivo con el `[nombre del comando].js` en la carpeta `/commands`. Puede tomar como referencia el comando `risa.js`.
 
 ## TODO
-- [ ] Mantener el bot encendido
+- [X] Mantener el bot encendido
 - [ ] Subir más risas de los audios grabados
 - [X] Obtener el id del canal de voz activo del usuario
 - [X] Parametrizar risa
