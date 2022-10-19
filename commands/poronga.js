@@ -1,7 +1,6 @@
 const path = require("node:path");
 const { joinVoiceChannel, createAudioPlayer, AudioPlayerStatus, createAudioResource, StreamType } = require("@discordjs/voice");
 const { SlashCommandBuilder } = require("discord.js");
-const MODOS = ["normal", "lento"];
 
 const getUserVoiceConnection = (interaction) => {
   const voiceChannelId = interaction.member.voice.channelId;
@@ -14,9 +13,9 @@ const getUserVoiceConnection = (interaction) => {
   });
 };
 
-const playSong = (voiceConnection, modo) => {
+const playSong = (voiceConnection) => {
   const player = createAudioPlayer();
-  const fileName = `../assets/sounds/${modo}.ogg`;
+  const fileName = `../assets/sounds/poronga.mp3`;
   const resource = createAudioResource(path.join(__dirname, fileName), {
     inputType: StreamType.OggOpus,
   });
@@ -37,18 +36,11 @@ const playSong = (voiceConnection, modo) => {
 };
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("risa")
-    .setDescription("Responde con una risa xd ;v!")
-    .addStringOption((option) => option.setName("modo").setDescription("normal o lento").setRequired(false)),
+  data: new SlashCommandBuilder().setName("poronga").setDescription("WTF! Quién poronga eres"),
   async execute(interaction) {
-    let modo = interaction.options.get("modo")?.value || "normal";
-
-    if (!MODOS.includes(modo)) return;
-
     try {
       const voiceConnection = getUserVoiceConnection(interaction);
-      playSong(voiceConnection, modo);
+      playSong(voiceConnection);
       interaction.reply("** **", { ephemeral: true });
     } catch (error) {
       console.error(error);
