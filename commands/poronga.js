@@ -41,7 +41,7 @@ module.exports = {
     try {
       const voiceConnection = getUserVoiceConnection(interaction);
       playSong(voiceConnection);
-      interaction.reply("** **", { ephemeral: true });
+      interaction.reply({ content: "** **", ephemeral: true });
     } catch (error) {
       console.error(error);
     }

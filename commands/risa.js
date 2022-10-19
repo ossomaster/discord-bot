@@ -49,7 +49,7 @@ module.exports = {
     try {
       const voiceConnection = getUserVoiceConnection(interaction);
       playSong(voiceConnection, modo);
-      interaction.reply("** **", { ephemeral: true });
+      interaction.reply({ content: "** **", ephemeral: true });
     } catch (error) {
       console.error(error);
     }
