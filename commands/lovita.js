@@ -21,7 +21,7 @@ const getUserVoiceConnection = (interaction) => {
 
 const playSong = (voiceConnection) => {
 	const player = createAudioPlayer();
-	const fileName = `../assets/sounds/callate.mp3`;
+	const fileName = `../assets/sounds/lovita.mp3`;
 	const resource = createAudioResource(path.join(__dirname, fileName), {
 		inputType: StreamType.OggOpus,
 	});
@@ -42,15 +42,12 @@ const playSong = (voiceConnection) => {
 };
 
 module.exports = {
-	data: new SlashCommandBuilder().setName("callate").setDescription("Cállate CTM"),
+	data: new SlashCommandBuilder().setName("lovita").setDescription("Viene bajando la llama"),
 	async execute(interaction) {
 		try {
 			const voiceConnection = getUserVoiceConnection(interaction);
 			playSong(voiceConnection);
-			interaction.reply({
-				content: "** **",
-				ephemeral: true,
-			});
+			interaction.reply({ content: "** **", ephemeral: true });
 		} catch (error) {
 			console.error(error);
 		}
