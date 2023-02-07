@@ -16,5 +16,6 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
       - name: Deploy app
         run: doctl compute ssh ubuntu --ssh-user osso --ssh-command "sh ~/scripts/deploy-discord-bot.sh"
