@@ -1,0 +1,18 @@
+name: Deploy to Droplet
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "dist/"
+          REMOTE_HOST: 137.184.224.181
+          REMOTE_USER: osso
+          TARGET: /var/www/tareas.ossomaster.com/html/
