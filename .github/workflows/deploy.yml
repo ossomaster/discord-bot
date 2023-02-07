@@ -8,11 +8,9 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "dist/"
-          REMOTE_HOST: 137.184.224.181
-          REMOTE_USER: osso
-          TARGET: /var/www/tareas.ossomaster.com/html/
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - name: Deploy app
+        run: doctl compute ssh ubuntu --ssh-user osso --ssh-command "sh ~/scripts/deploy-discord-bot.sh"
