@@ -11,8 +11,9 @@ jobs:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
+          name: id_rsa
           key: ${{ secrets.SSH_KEY }}
-          known_hosts: unnecessary
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
