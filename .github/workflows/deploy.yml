@@ -14,9 +14,5 @@ jobs:
           name: id_rsa
           key: ${{ secrets.SSH_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-      - name: Deploy app
-        run: doctl compute ssh ubuntu --ssh-user osso --ssh-key-path ~/.ssh/id_rsa --ssh-command "sh ~/scripts/deploy-discord-bot.sh"
+      - name: Deploy App
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/id_rsa '~/scripts/deploy-discord-bot.sh'
