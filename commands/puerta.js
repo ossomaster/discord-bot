@@ -42,7 +42,7 @@ const playSong = (voiceConnection) => {
 };
 
 module.exports = {
-	data: new SlashCommandBuilder().setName("puerta").setDescription("Viene bajando la llama"),
+	data: new SlashCommandBuilder().setName("puerta").setDescription("Toc toc toc quién es?"),
 	async execute(interaction) {
 		try {
 			const voiceConnection = getUserVoiceConnection(interaction);
